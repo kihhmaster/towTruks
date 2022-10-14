@@ -1,0 +1,79 @@
+// USER VARIABLES SECTION
+
+$accent: #efb412// Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$lineheight: 1.65 // Document Line Height
+
+$userfont: Montserrat, sans-serif // User Font Family
+$Montserrat: Montserrat, sans-serif // User Font Family
+$BebasNeue: BebasNeueBook, sans-serif // User Font Family
+$bebasNeueCyrillic: bebasNeueCyrillic, sans-serif // User Font Family
+$DrukWideCy: DrukWideCy, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+$assetImages: "../images/dist"
+// mask-image: url(#{$assetImages}/facebook--icon.svg)
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+
+@include font('Montserrat', bold, 700, '../fonts/Montserrat/MontserratBold/MontserratBold.woff')
+@include font('Montserrat', Extra Bold, 800, '../fonts/Montserrat/MontserratExtraBold/MontserratExtraBold.woff')
+@include font('Montserrat', Extra Light, 100, '../fonts/Montserrat/MontserratExtraLight/MontserratExtraLight.woff')
+@include font('Montserrat', Light, 200, '../fonts/Montserrat/MontserratLight/MontserratLight.woff')
+@include font('Montserrat', Medium, 500, '../fonts/Montserrat/MontserratMedium/MontserratMedium.woff')
+@include font('Montserrat', Regular, 400, '../fonts/Montserrat/MontserratRegular/MontserratRegular.woff')
+@include font('Montserrat', Semi Bold, 600, '../fonts/Montserrat/MontserratSemiBold/MontserratSemiBold.woff')
+@include font('Montserrat', Black, 900, '../fonts/Montserrat/MontserratBlack.woff2')
+@include font('Montserrat', italic, 900, '../fonts//MontserratMontserrat-BlackItalic.ttf')
+@include font('Montserrat', italic, 700, '../fonts//MontserratMontserrat-BoldItalic.ttf')
+
+@include font('BebasNeueBook', bold, 700, '../fonts/BebasNeueBook.ttf')
+@include font('bebasNeueCyrillic', bold, 700, '../fonts/bebasNeueCyrillic.ttf')
+@include font('DrukWideCy', bold, 700, '../fonts/DrukWideCyTTBold.woff2')
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+a
+	&:hover
+		transition: all .3s ease
+		color: #fff
